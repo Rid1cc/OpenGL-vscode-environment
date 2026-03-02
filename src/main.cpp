@@ -115,9 +115,13 @@ int main() {
               << " | " << glGetString(GL_RENDERER) << '\n';
 
 #ifndef NDEBUG
-    glEnable(GL_DEBUG_OUTPUT);
-    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-    glDebugMessageCallback(debugCallback, nullptr);
+    if (glDebugMessageCallback) {
+        glEnable(GL_DEBUG_OUTPUT);
+        glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+        glDebugMessageCallback(debugCallback, nullptr);
+    } else {
+        std::cout << "[debug] GL_KHR_debug not supported on this platform\n";
+    }
 #endif
 
     // Triangle: position (x,y) + color (r,g,b) per vertex
