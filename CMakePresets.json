@@ -41,11 +41,35 @@
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "OFF"
             }
         }
+        ,
+        {
+            "name": "linux-debug",
+            "displayName": "Linux (GCC) · Debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build",
+            "toolchainFile": "${sourceDir}/cmake/toolchain-linux.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "linux-release",
+            "inherits": "linux-debug",
+            "displayName": "Linux (GCC) · Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "OFF"
+            }
+        }
     ],
     "buildPresets": [
         { "name": "debug",       "configurePreset": "mingw64-debug",  "jobs": 4 },
         { "name": "release",     "configurePreset": "mingw64-release", "jobs": 4 },
         { "name": "debug-mac",   "configurePreset": "macos-debug",    "jobs": 4 },
         { "name": "release-mac", "configurePreset": "macos-release",  "jobs": 4 }
+        ,
+        { "name": "debug-linux",   "configurePreset": "linux-debug",    "jobs": 4 },
+        { "name": "release-linux", "configurePreset": "linux-release",  "jobs": 4 }
     ]
 }

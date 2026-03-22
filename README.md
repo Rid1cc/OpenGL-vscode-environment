@@ -1,6 +1,6 @@
 # OpenGL Template VS Code
 
-Cross-platform OpenGL starter for Windows (MSYS2/MinGW-w64) and macOS.
+Cross-platform OpenGL starter for Windows (MSYS2/MinGW-w64), macOS, and Linux.
 
 ## Prerequisites
 
@@ -14,6 +14,17 @@ Cross-platform OpenGL starter for Windows (MSYS2/MinGW-w64) and macOS.
 - If your MSYS2 is not at `C:/msys64`, update the path in:
   - `cmake/toolchain-mingw64.cmake` → `MSYS2_ROOT`
   - `.vscode/settings.json` → `grafika.msys2Root`
+
+### Linux
+
+- GCC, CMake, Make, GDB:
+
+  (f.e. debian based linux)
+  ```
+  sudo apt update
+  sudo apt install build-essential cmake gdb
+  ```
+- Python 3 (usually preinstalled  lub `sudo apt install python3-pip`)
 
 ### macOS
 
@@ -57,6 +68,13 @@ rm -rf glfw-temp glfw.zip
 
 On macOS, GLFW is installed via Homebrew — no manual download needed.
 
+On Linux, GLFW is installed via package manager:
+
+```
+sudo apt install libglfw3-dev libglm-dev
+```
+(for arch based distros - ```pacman -S glfw glm```)
+
 ## Build
 
 ```bash
@@ -67,9 +85,18 @@ cmake --build --preset debug
 # macOS
 cmake --preset macos-debug
 cmake --build --preset debug-mac
+
+# Linux
+cmake --preset linux-debug
+cmake --build --preset debug-linux
 ```
 
 The executable is placed in `build/`.
+
+```
+cd build
+./OpenGLApp
+```
 
 ## VS Code
 

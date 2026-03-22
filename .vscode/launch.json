@@ -69,5 +69,35 @@
             "MIMode": "lldb",
             "preLaunchTask": "macOS: Build Debug"
         }
+        ,
+        {
+            "name": "Linux: Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/OpenGLApp",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "Linux: Build Debug"
+        },
+        {
+            "name": "Linux: Run (no debugger)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/OpenGLApp",
+            "args": [],
+            "noDebug": true,
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "Linux: Build Debug"
+        }
     ]
 }

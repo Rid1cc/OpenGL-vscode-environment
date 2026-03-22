@@ -150,6 +150,44 @@
             "problemMatcher": [],
             "group": "test",
             "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+        },
+                {
+            "label": "Linux: Build Debug",
+            "type": "shell",
+            "command": "cmake --preset linux-debug && cmake --build --preset debug-linux",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$gcc",
+            "group": "build",
+            "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+        },
+        {
+            "label": "Linux: Build Release",
+            "type": "shell",
+            "command": "cmake --preset linux-release && cmake --build --preset release-linux",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$gcc",
+            "group": "build",
+            "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+        },
+        {
+            "label": "Linux: Clean",
+            "type": "shell",
+            "command": "rm -rf build",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": [],
+            "group": "build",
+            "presentation": { "reveal": "always", "panel": "shared" }
+        },
+        {
+            "label": "Linux: Run",
+            "detail": "Build Debug + launch executable",
+            "type": "shell",
+            "command": "./OpenGLApp",
+            "dependsOn": "Linux: Build Debug",
+            "options": { "cwd": "${workspaceFolder}/build" },
+            "problemMatcher": [],
+            "group": { "kind": "test" },
+            "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
         }
     ]
 }
